@@ -1,18 +1,10 @@
-## Getting Started
+## Goals of Project:
+- Create small programs that utilize Generics.
+- Showcasing features and characteristics of Generics.
+- Eventually apply concepts to Data Structure concepts.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Planned Data Structure Application:
+- Implement LinkedList, then Queue and Stack using inheritance.
+- Implement Hashtable.
+- Implement Binary Search Tree.
+- Implement Red Black Tree.
