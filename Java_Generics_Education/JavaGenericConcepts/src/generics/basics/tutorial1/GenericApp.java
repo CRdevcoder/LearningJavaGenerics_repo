@@ -14,14 +14,15 @@ public class GenericApp {
         Box<String> myFavoriteAnimal = new Box<>();
         myFavoriteAnimal.setTypeData("Giraffe");
 
-
         // You can't use a non-Integer, like String, for the myNumber Box.
-        try {
-            myNumber.setTypeData("Words");
+        // Causes compilation error, not runtime error.
+        /*try {
+            myNumber.setTypeData("word");;
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
         }
+            */
 
 
         // print out Box data.
