@@ -1,8 +1,8 @@
-package generics.basics;
+package generics.basics.tutorial1;
 
 public class Box<T> {
 
-    // Will be same type as param type arguement.
+    // All T's will become same data type as the one type arguement given to a Box Object on creation.
     private T typeData;
 
     public void setTypeData(T typeData) {
