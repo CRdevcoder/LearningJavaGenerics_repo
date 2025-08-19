@@ -1,5 +1,6 @@
-## Goals of Project:
+## Learning Goals of Project:
 - Create small programs that utilize Generics.
+- Handle files using java
 - Showcasing features and characteristics of Generics.
 - Eventually apply concepts to Data Structure concepts.
 
