@@ -62,7 +62,8 @@ public class TextMain {
             e.printStackTrace();
         }
 
-    }
+        System.out.println();
+    } // Main End.
 
     // enter lines of text into console, it is stored into ArrayList, then returned.
     public static ArrayList<String> inputText()
