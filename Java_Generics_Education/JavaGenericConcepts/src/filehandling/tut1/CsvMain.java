@@ -1,7 +1,9 @@
 package filehandling.tut1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -91,6 +93,36 @@ public class CsvMain {
 
             money = ScannerUtil.askForEnterData(inputScan, "Pay Amount (Cash)", new DataParser.DoubleInputParser());
             System.out.println("You entered: " + money);
+
+            // Write data onto csv file
+            BufferedWriter writer;
+            {// code block
+
+                String inputRow = "";
+
+                try {
+                    // give buffered writer file path to csv file.
+                    writer = new BufferedWriter(new FileWriter(file,true)); // must set append mode to true.
+                    
+                    // add all elements with comma after it to String, except last element.
+                    for (int i = 0; i < row.length; i++) {
+                        inputRow += row[i] + ",";
+                    }
+                    
+                    inputRow += money; // add last element to String
+                    System.out.println(inputRow);
+
+                    // add new row to file
+                    writer.append("\n"+inputRow);
+
+                    writer.close();
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    e.printStackTrace();
+                }
+
+            }
 
         }
         else
