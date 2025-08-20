@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,7 @@ public class AppWindow extends JFrame implements ActionListener{
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //this.setLayout(new BoxLayout(null,BoxLayout.Y_AXIS)); // layout
-        this.setLayout(new FlowLayout());
+        this.setLayout(new BorderLayout());
 
         this.setUpComponents();
 
@@ -66,8 +67,8 @@ public class AppWindow extends JFrame implements ActionListener{
         // adding to note panel.
         notePanel.add(notepadArea);
         // adding to window.
-        this.add(buttonPanel);
-        this.add(notePanel);
+        this.add(buttonPanel, BorderLayout.NORTH);
+        this.add(notePanel, BorderLayout.CENTER);
     }
 
     @Override
