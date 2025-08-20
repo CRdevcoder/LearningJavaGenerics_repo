@@ -57,7 +57,7 @@ public class ScannerUtil {
     // Returns that datatype if user enters correct datatype.
     // Or REJECTS user's input and asks question again.
     // Options: Numbers - Integer, Double, Float, or just String.
-    public static <T> T askForEnterData(Scanner userInput, String message)
+    public static <T> T askForEnterData(Scanner userInput, String message,InputParser<T> parser)
     {
         String rawInput = null;
         T dataInput = null;
@@ -66,9 +66,19 @@ public class ScannerUtil {
         boolean invalidAnswer = true;
         do{
             System.out.println("Enter " + message + " : ");
-            rawInput = userInput.nextLine();
+            rawInput = userInput.next();
 
-            // PROBLEM: How to test if user entered proper String or Number input?
+            // TRY: test if user entered proper String or Number input. Must match T parameter arguement.
+            try {
+                dataInput = parser.tryParse(rawInput);
+                // If it doesn't through an exception, set to false. Ends loop.
+                invalidAnswer = false;
+            } catch (Exception e) {
+                // Set to true if tryParse throws exception!
+                invalidAnswer = true;
+                System.out.println(e.getMessage());
+                // Now repeats!
+            }
                 
             }while(invalidAnswer); //end of asking question.
 

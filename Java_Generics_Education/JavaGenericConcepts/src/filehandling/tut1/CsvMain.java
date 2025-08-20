@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import filehandling.util.DataParser;
 import filehandling.util.ScannerUtil;
 
 // Summary:
@@ -64,11 +65,13 @@ public class CsvMain {
 
         // USER INPUT CODE:
         // Ask user if they want to enter a new row.
-        Scanner input = new Scanner(System.in);
+        Scanner inputScan = new Scanner(System.in);
         boolean appendNewRow = false;
+        String[] row = new String[2]; // stores user inputs.
+        Double money = null;
 
         try {
-            appendNewRow = ScannerUtil.askYesNoQuestionInput(input, "Do you want to add a new row?");
+            appendNewRow = ScannerUtil.askYesNoQuestionInput(inputScan, "Do you want to add a new row?");
         } catch (Exception e) {
             e.getMessage();
         }
@@ -79,6 +82,16 @@ public class CsvMain {
             // First asks for String, for name.
             // Secound, asks for String, for salary
             // Finally, asks for Double, for pay amount.
+
+            row[0] = ScannerUtil.askForEnterData(inputScan,"Employee name",new DataParser.WordInputParser());
+            System.out.println("You entered: " + row[0]);
+
+            row[1] = ScannerUtil.askForEnterData(inputScan, "Payment type (Salary or Wage)", new DataParser.WordInputParser());
+            System.out.println("You entered: " + row[1]);
+
+            money = ScannerUtil.askForEnterData(inputScan, "Pay Amount (Cash)", new DataParser.DoubleInputParser());
+            System.out.println("You entered: " + money);
+
         }
         else
         {
@@ -88,4 +101,5 @@ public class CsvMain {
 
     }
 
+    
 }
