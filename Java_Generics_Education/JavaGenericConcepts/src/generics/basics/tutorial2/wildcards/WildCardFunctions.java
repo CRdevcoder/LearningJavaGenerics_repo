@@ -2,6 +2,8 @@ package generics.basics.tutorial2.wildcards;
 
 import java.util.ArrayList;
 
+// Class: Explores Wild Card Type parameter <?>
+
 public class WildCardFunctions {
     // prints objects.
     public static <T> void displayToString(T typeData)

@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+// Class Summary: Window class that creates and controls all GUI components for notepad app.
+// Composition: 1 JFileChooser, 3 JButtons, 2 JPanels, 1 JTextArea
+
 public class AppWindow extends JFrame implements ActionListener{
 
     //Components:

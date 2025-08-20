@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+// Summary:
+// Explores reading and printing csv file data.
+
 // tutorial:
 // https://www.youtube.com/watch?v=zKDmzKaAQro
 // not exact copy, I took my own liberties

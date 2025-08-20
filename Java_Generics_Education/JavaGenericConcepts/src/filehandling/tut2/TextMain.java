@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Summary:
+// Explores reading AND writing onto text files.
+
 // Writing on text files in java tutorial
 // Video: Java File Input/Output - It's Way Easier Than You Think
 // Channel: Coding with John
