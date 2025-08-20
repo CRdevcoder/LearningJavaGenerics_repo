@@ -47,6 +47,11 @@ public class GenericApp {
         countryList.add(germany);
         // prints out arrayList of OrderedPair objects.
         Util.displayToString(countryList);
+
+        // Testing NamePair class.
+        NamePair freindName = new NamePair("Phillip", "Fry");
+        System.out.println( freindName.getKey()+ " " + freindName.getValue());
+
     }
 
 }
