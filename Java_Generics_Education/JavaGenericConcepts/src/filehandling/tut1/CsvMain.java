@@ -1,4 +1,4 @@
-package filehandling;
+package filehandling.tut1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 // tutorial:
 // https://www.youtube.com/watch?v=zKDmzKaAQro
 // not exact copy, I took my own liberties
-public class Main {
+public class CsvMain {
 
     public static void main(String[] args) {
         
