@@ -51,7 +51,7 @@ public class ScannerUtil {
             return userResponse;
     }
 
-    // UNFINISHED METHOD:
+    // AskForEnterData METHOD: (may need more tweaks)
     // Ask for Number or String text Input.
     // Receives user input, then tests if it is the datatype it asked for.
     // Returns that datatype if user enters correct datatype.
