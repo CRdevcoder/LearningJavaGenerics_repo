@@ -2,6 +2,7 @@ package filehandling.tut2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -19,25 +20,46 @@ public class TextMain {
     public static void main(String[] args) {
         
         BufferedWriter  writer = null;
-        //BufferedReader reader = null;
+        BufferedReader reader = null;
+
+        String filePath = "textFiles//tut2output.txt";
 
         try {
-            writer = new BufferedWriter(new FileWriter("textFiles//tut2output.txt"));
+            writer = new BufferedWriter(new FileWriter(filePath));
             writer.write("Writing to a file:");
 
             // get user input
             ArrayList<String> userText = inputText();
 
-            // enter input into text file
+            // enter user input into text file
             for(String line : userText)
             {
                 writer.write("\n" + line);
             }
-            
+
+
             // close writer
             writer.close();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
 
+        // print text file results into console.
+        try {
+            reader = new BufferedReader(new FileReader(filePath));
+            System.out.println(reader.readLine());
+
+            // read lines from text file, then print them.
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            reader.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
     }
@@ -98,7 +120,7 @@ public class TextMain {
         } while (typing);
 
 
-        return textLines;
+        return textLines; 
     }
 
 }

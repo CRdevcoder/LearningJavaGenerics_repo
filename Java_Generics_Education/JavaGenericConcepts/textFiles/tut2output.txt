@@ -1,0 +1,4 @@
+Writing to a file:
+I love to swim!
+I like to dance!
+I hate waiting in traffic...
