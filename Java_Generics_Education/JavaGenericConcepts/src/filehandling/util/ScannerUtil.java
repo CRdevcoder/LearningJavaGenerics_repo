@@ -71,7 +71,7 @@ public class ScannerUtil {
             // TRY: test if user entered proper String or Number input. Must match T parameter arguement.
             try {
                 dataInput = parser.tryParse(rawInput);
-                // If it doesn't through an exception, set to false. Ends loop.
+                // If it doesn't throw an exception, set to false. Ends loop.
                 invalidAnswer = false;
             } catch (Exception e) {
                 // Set to true if tryParse throws exception!
