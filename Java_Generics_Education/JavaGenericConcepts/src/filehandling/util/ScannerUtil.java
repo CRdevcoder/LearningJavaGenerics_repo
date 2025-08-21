@@ -80,7 +80,7 @@ public class ScannerUtil {
                 // Now repeats!
             }
                 
-            }while(invalidAnswer); //end of asking question.
+        }while(invalidAnswer); //end of asking question.
 
         return dataInput;
     }
