@@ -1,4 +1,4 @@
-## Learning Goals of Overall Project:
+# Learning Goals of Overall Project:
 - Create small programs that utilize Generics.
 - Handle files using java
 - Showcasing features and characteristics of Generics.
@@ -19,3 +19,9 @@
 ## File Folders:
 - csvFiles, contains csv files
 - textFiles, contains text files used by projects
+
+# Small Projects:
+simple GUI applications that modify files
+- Java Notepad App
+    - loads text files (Unimplemented)
+    - saves changes to text files (Unimplemented)
