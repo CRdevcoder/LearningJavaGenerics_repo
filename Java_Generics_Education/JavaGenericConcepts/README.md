@@ -17,5 +17,5 @@
 - smallprojects
 
 ## File Folders:
-- csvFiles
+- csvFiles, contains csv files
 - textFiles, contains text files used by projects
