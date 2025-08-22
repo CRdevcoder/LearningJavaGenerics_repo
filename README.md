@@ -1,5 +1,5 @@
 # Learning Goals of Overall Project:
-- Create small programs that utilize Generics.
+- Create small programs that utilize Generics, DataStructures, and file handling concepts.
 - Handle files using java
 - Showcasing features and characteristics of Generics.
 - Eventually apply concepts to Data Structure concepts.
