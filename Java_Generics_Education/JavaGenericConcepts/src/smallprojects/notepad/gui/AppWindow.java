@@ -1,6 +1,5 @@
 package smallprojects.notepad.gui;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -91,7 +90,15 @@ public class AppWindow extends JFrame implements ActionListener{
                 System.out.println(file);
             }
         }
+
+        if(e.getSource().equals(saveButton))
+        {
+            System.out.println(notepadArea.getText());
+
+        }
         
     }
+
+    
 
 }
