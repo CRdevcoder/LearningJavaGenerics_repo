@@ -24,7 +24,7 @@ public class LearnPath {
         System.out.println( "p1 Path:\n"+ p1.toAbsolutePath());
         System.out.println("p1 Exists:" + Files.exists(p1));
 
-        System.out.println("\nTest this is folder: " + folder1);
+        System.out.println("\nTest if this is folder: " + folder1);
         System.out.println("Is Directory: " + Files.isDirectory(folder1));
         System.out.println("Is File: " + Files.isRegularFile(folder1) + "\n");
         
