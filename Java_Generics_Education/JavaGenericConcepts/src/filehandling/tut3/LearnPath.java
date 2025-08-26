@@ -1,9 +1,5 @@
 package filehandling.tut3;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,7 +15,7 @@ public class LearnPath {
     public static void main(String[] args) {
         
         Path p1 = Paths.get(".","csvFiles","exampleData.csv");
-        //p1 = Paths.get("csvFiles\\exampleData.csv");
+        Path folder1 = Paths.get(".","csvFiles");
 
         // Use .\\ for relative directory. Project starts at "Java_Generics_Education" file.
         Path currDir = Paths.get(".\\Java_Generics_Education\\JavaGenericConcepts\\csvFiles\\exampleData.csv");
@@ -27,6 +23,10 @@ public class LearnPath {
         System.out.println("currDir: "+Files.exists(currDir));
         System.out.println( "p1 Path:\n"+ p1.toAbsolutePath());
         System.out.println("p1 Exists:" + Files.exists(p1));
+
+        System.out.println("\nTest this is folder: " + folder1);
+        System.out.println("Is Directory: " + Files.isDirectory(folder1));
+        System.out.println("Is File: " + Files.isRegularFile(folder1) + "\n");
         
         // Note: opening the project in different folders changes the output of toAbsolutePath().
 
@@ -41,9 +41,8 @@ public class LearnPath {
 
             // EXPERIEMENTING with BasicFileAttributeView.
 
-            // Need
             // BasicFileAttributeView used to get all the file data for the attributes.
-            // Use to store meta data from file into BasicFileAttributes object.
+            // Use to read meta data from file, then store into BasicFileAttributes object.
             BasicFileAttributeView view= Files.getFileAttributeView( p1, BasicFileAttributeView.class);
 
             try {
@@ -59,7 +58,6 @@ public class LearnPath {
 
             System.out.println();
 
-            //BufferedInputStream stream = new BufferedInputStream(new FileInputStream());
         }
         
     }
