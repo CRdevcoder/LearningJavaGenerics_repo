@@ -11,9 +11,13 @@
 - Implement Red Black Tree.
 
 ## Main Java Packages:
+#### Learning Topic Packages
+Each of these store tutorial packages, which contain classes that test out OOP concepts of their corresponding topic.
 - datastructures
 - filehandling
 - generics
+#### Small Project Package
+This package stores simple projects that genrally apply the ideas from the topic packages.
 - smallprojects
 
 ## File Folders:
