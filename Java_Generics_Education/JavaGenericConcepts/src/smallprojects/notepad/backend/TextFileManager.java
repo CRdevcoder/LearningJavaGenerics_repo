@@ -4,17 +4,21 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-// Backend for notepad project.
+// Backend class for notepad project.
+// Use to determine whether a given file is proper text file or not.
 // Handle text files by:
 //      Writing data from given String to file.
 //      reading and returning text file data.
+// Dev Note: can transfer these functionalities into generic interface/abstract class.
 
 public class TextFileManager {
 
@@ -34,7 +38,7 @@ public class TextFileManager {
     // Method to test validity of file.
     public static boolean isValidFile(Path p)
     {
-        // tests if it exists.
+        // tests if it exists, is a text file, etc.
         boolean valid = Files.exists(p) && Files.isRegularFile(p) &&
         !Files.isDirectory(p) && isTextFile(p) && Files.isReadable(p) && Files.isWritable(p);
 
@@ -49,20 +53,37 @@ public class TextFileManager {
         return extension.contains("txt");
     }
 
-    // Use Method to save to file.
-    // Writes string data to path text file.
-    // returns BufferedWriter for you to use.
-    public BufferedWriter writeStringToFile( String text, OpenOption ... options ) throws IOException
+    /* writeStringToFile Method: 
+    * Writes string data to path text file.
+    * returns BufferedWriter for you to use.
+    * Utility: Use to save to text file.
+    * @param String text - text written to filePath text file.
+    * @param OpenOption options - options specifying how the file is opened.
+    * @param Charset cs - the charset to used for encoding to file.
+    */
+    public BufferedWriter writeStringToFile( String text, Charset cs, OpenOption ... options ) throws IOException
     {
-        
-        Charset charset = Charset.forName("US-ASCII");
-        BufferedWriter writer = Files.newBufferedWriter(filePath, charset,options);
+        BufferedWriter writer = Files.newBufferedWriter(filePath, cs,options);
         writer.write(text);
         return writer;
     }
 
-    // Method to open text file.
+    // Method to read text file, return it as String.
+    public ArrayList<String> readFiletoStringArrayList(Charset cs) throws IOException
+    {
+        // Stores lines from file.
+        String readLine = null;
+        // lines stored in lineList.
+        ArrayList<String> lineList = new ArrayList<>();
+        BufferedReader reader = Files.newBufferedReader(filePath, cs);
+        // read lines.
+        while ((readLine = reader.readLine()) != null) {
+            lineList.add(readLine);
+        }
 
-    // Method to check if given path leads to text file.
+        reader.close();
+
+        return lineList;
+    }
 
 }
