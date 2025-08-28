@@ -25,11 +25,16 @@ public class TestTextFileManager {
         Path testPath = Paths.get(".\\textFiles\\tut2output.txt");
 
         // Testing isTextFile and isValidFile methods.
-        System.out.println("Testing isTextFile and isValidFile methods:\nUsing file:" + testPath);
-        boolean isTxt = TextFileManager.isTextFile(testPath);
-        System.out.println("Is text file: " + isTxt);
-        boolean isValidFile = TextFileManager.isValidFile(testPath);
-        System.out.println("Is valid file: " + isValidFile);
+        try {
+            System.out.println("Testing isTextFile and isValidFile methods:\nUsing file:" + testPath);
+            boolean isTxt = TextFileManager.isTextFile(testPath);
+            System.out.println("Is text file: " + isTxt);
+            boolean isValidFile = TextFileManager.isValidFile(testPath);
+            System.out.println("Is valid file: " + isValidFile);  
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
 
         // Creating temp txt file, and opening it using TextFileManager
         Path fileFolder = Paths.get(".","textFiles");
@@ -65,7 +70,6 @@ public class TestTextFileManager {
             }
 
             // pause to observe files being created in IDE file directory.
-            //ScannerUtil.askYesNoQuestionInput(new Scanner(System.in),"Enter response to continue program");
 
             // delete temporary files
             Files.deleteIfExists(tempPath);
@@ -92,7 +96,6 @@ public class TestTextFileManager {
             Files.deleteIfExists(tempPath);
             
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
         

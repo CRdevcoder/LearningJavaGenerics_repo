@@ -13,6 +13,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
+import smallprojects.util.UtilFileHelper;
+
 // Backend class for notepad project.
 // Use to determine whether a given file is proper text file or not.
 // Handle text files by:
@@ -48,9 +50,16 @@ public class TextFileManager {
     // Method to test if path is text file using path extension.
     public static boolean isTextFile(Path p)
     {
-        String name = p.getFileName().toString();
-        String extension = name.substring(name.indexOf("."));
-        return extension.contains("txt");
+        try {
+            // check if file has extension (txt)
+            return UtilFileHelper.checkFileExtension(p, "txt");
+        } catch (Exception e) {
+            System.out.println("(isTextFile)" + e.getMessage());
+            // Exception by checkFileExtension means it doesn't have file extension.
+            // Thus, return false.
+            return false;
+        }
+        
     }
 
     /* writeStringToFile Method: 
@@ -68,9 +77,13 @@ public class TextFileManager {
         return writer;
     }
 
-    // Method to read text file, return it as String.
+    // Method to read text file, return it as String ArrayList.
     public ArrayList<String> readFiletoStringArrayList(Charset cs) throws IOException
     {
+
+        ArrayList<String> lineList = UtilFileHelper.readFiletoStringArrayList(filePath,cs);
+
+        /*
         // Stores lines from file.
         String readLine = null;
         // lines stored in lineList.
@@ -82,6 +95,7 @@ public class TextFileManager {
         }
 
         reader.close();
+         */
 
         return lineList;
     }
