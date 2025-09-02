@@ -84,13 +84,19 @@ public class TestTextFileManager {
         try {
             tempPath = Files.createTempFile(fileFolder, "sampleTemp",".txt");
             TextFileManager sampleManager = new TextFileManager(tempPath);
+            BufferedWriter smWriter;
+
             // Writing to file.
-            BufferedWriter smWriter = sampleManager.writeStringToFile("This is a sample file\nGood day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
+             smWriter = sampleManager.writeStringToFile("This is a sample file\nGood day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
+            smWriter.close(); // closing writer.
+
+            // Writing to file.
+             smWriter = sampleManager.writeStringToFile("This is my favorite text\nHave a good day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
             smWriter.close(); // closing writer.
 
             // Reading file
             ArrayList<String> textList = sampleManager.readFiletoStringArrayList(Charset.forName("US-ASCII"));
-            System.out.println("Contents of file: " + tempPath + "\n" + textList);
+            System.out.println("Read Contents of file: " + tempPath + "\n" + textList);
             
             // deleting temp file.
             Files.deleteIfExists(tempPath);
@@ -98,7 +104,6 @@ public class TestTextFileManager {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
     }
 
 }

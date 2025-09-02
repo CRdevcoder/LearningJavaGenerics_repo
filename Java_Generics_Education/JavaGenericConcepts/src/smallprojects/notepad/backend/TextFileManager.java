@@ -26,6 +26,13 @@ public class TextFileManager {
 
     private Path filePath; // file path TextFileManager is using
 
+    // getter method:
+
+    public Path getFilePath()
+    {
+        return Paths.get(filePath.toString());
+    }
+
     // MUST be contructed with path path that leads to txt file, which is readable.
     public TextFileManager(Path filePath) throws Exception
     {
@@ -74,6 +81,8 @@ public class TextFileManager {
     {
         BufferedWriter writer = Files.newBufferedWriter(filePath, cs,options);
         writer.write(text);
+        System.out.println("content: " + text);
+        
         return writer;
     }
 
