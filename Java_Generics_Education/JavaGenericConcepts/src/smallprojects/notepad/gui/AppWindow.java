@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
@@ -129,8 +130,10 @@ public class AppWindow extends JFrame implements ActionListener{
         if(currentFileManager != null)
         {
             System.out.println("Writing content:\n" + newContent);
-            BufferedWriter bw = currentFileManager.writeStringToFile(newContent, StandardCharsets.UTF_8, StandardOpenOption.WRITE);
-            bw.close();
+            // Add truncate with write for it to work! (truncate is the default)
+            currentFileManager.writeStringToFile(newContent, StandardCharsets.UTF_8, StandardOpenOption.WRITE,StandardOpenOption.TRUNCATE_EXISTING);
+            
+            //Files.writeString(currentFileManager.getFilePath(), newContent, StandardOpenOption.WRITE);
             System.out.println("new content: \n" + currentFileManager.readFiletoStringArrayList(StandardCharsets.UTF_8));
         }
         else

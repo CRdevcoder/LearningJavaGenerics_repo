@@ -71,19 +71,18 @@ public class TextFileManager {
 
     /* writeStringToFile Method: 
     * Writes string data to path text file.
-    * returns BufferedWriter for you to use.
+    * (REMOVED FEATURE) returns BufferedWriter for you to use.
+    * Closes the BufferedWriter it creates.
     * Utility: Use to save to text file.
     * @param String text - text written to filePath text file.
     * @param OpenOption options - options specifying how the file is opened.
     * @param Charset cs - the charset to used for encoding to file.
     */
-    public BufferedWriter writeStringToFile( String text, Charset cs, OpenOption ... options ) throws IOException
+    public void writeStringToFile( String text, Charset cs, OpenOption ... options ) throws IOException
     {
         BufferedWriter writer = Files.newBufferedWriter(filePath, cs,options);
         writer.write(text);
-        System.out.println("content: " + text);
-        
-        return writer;
+        writer.close(); // close writer    
     }
 
     // Method to read text file, return it as String ArrayList.

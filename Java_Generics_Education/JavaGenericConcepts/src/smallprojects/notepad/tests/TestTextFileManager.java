@@ -84,15 +84,13 @@ public class TestTextFileManager {
         try {
             tempPath = Files.createTempFile(fileFolder, "sampleTemp",".txt");
             TextFileManager sampleManager = new TextFileManager(tempPath);
-            BufferedWriter smWriter;
+            //BufferedWriter smWriter;
 
             // Writing to file.
-             smWriter = sampleManager.writeStringToFile("This is a sample file\nGood day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
-            smWriter.close(); // closing writer.
+            sampleManager.writeStringToFile("This is a sample file\nGood day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
 
             // Writing to file.
-             smWriter = sampleManager.writeStringToFile("This is my favorite text\nHave a good day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
-            smWriter.close(); // closing writer.
+            sampleManager.writeStringToFile("This is my favorite text\nHave a good day!",Charset.forName("US-ASCII"), StandardOpenOption.WRITE);
 
             // Reading file
             ArrayList<String> textList = sampleManager.readFiletoStringArrayList(Charset.forName("US-ASCII"));
